@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>pH | Alan Rodríguez Gallegos</title>
+</head>
+
+<body id="color" data-scroll-container onload="move('element')">
+    <nav>
+        <div class="gen">
+            <div class="col doble">
+                <p class="parrafo" id="current_date">
+                </p>
+
+                <!--FECHA ACTUAL-->
+                <script>
+                    function updateClock() {
+                        var date = new Date();
+                        var year = date.getFullYear().toString();
+                        var month = date.getMonth() + 1;
+                        var day = date.getDate();
+                        var hours = date.getHours();
+                        var minutes = date.getMinutes();
+                        var seconds = date.getSeconds();
+
+                        document.getElementById("current_date").innerHTML =
+                            day + "/" + month + "/" + year + "<br>" + hours + ":" + ("0" + minutes).slice(-2) + ":" + (
+                                "0" + seconds).slice(-2) + " GMT-6";
+                    }
+
+                    updateClock(); // llama a la función para que jale
+
+                    setInterval(updateClock, 1000); // actualiza la función cada segundo
+                </script>
+            </div>
+            <div class="col doble">
+                <p class="parrafo">
+                    S. P. L. Sørensen.
+                </p>
+            </div>
+            <div class="col2 cero"></div>
+        </div>
+    </nav>
+    <section class="general">
+        <header id="header" data-scroll-section>
+            <div class="gen">
+                <div class="col4">
+                    <h1>calculadora de pH</h1>
+                </div>
+            </div>
+            <div class="gen">
+                <div class="col2 mitad"></div>
+                <div class="col doble">
+                    <p class="parrafo">
+                        Descubre el pH de cualquier sustancia de forma precisa y rápida utilizando cálculos basados en
+                        logaritmos. Obtén información clave sobre la acidez o alcalinidad con nuestro práctico
+                        calculador de pH en línea.
+                        <br><br>
+                        A continuación se muestran varias calculadoras, dependiendo de los datos que tengas y los que
+                        requieras calcular.
+                    </p>
+                </div>
+                <div class="col"></div>
+            </div>
+        </header>
+        <aside class="colores" data-scroll-section data-scroll-speed="5">
+            <div class="gen">
+                <div class="color 1" style="background-color: #eb4026;" data-scroll data-scroll-delay="1"
+                    data-scroll-speed="-2"></div>
+                <div class="color 3" style="background-color: #f5b440;" data-scroll data-scroll-speed="-4"></div>
+                <div class="color 5" style="background-color: #e0e94e;" data-scroll data-scroll-speed="-6"></div>
+                <div class="color 7" style="background-color: #51af33;" data-scroll data-scroll-speed="0"></div>
+                <div class="color 9" style="background-color: #5bccc8;" data-scroll data-scroll-speed="-4"></div>
+                <div class="color 11" style="background-color: #3051d4;" data-scroll data-scroll-speed="-8"></div>
+                <div class="color 13" style="background-color: #6730b2;" data-scroll data-scroll-speed="-1"></div>
+                <div class="colormedio"></div>
+            </div>
+            <div class="gen">
+                <div class="colormedio"></div>
+                <div class="color 2" style="background-color: #ed6c42;" data-scroll data-scroll-speed="-9"></div>
+                <div class="color 4" style="background-color: #fad749;" data-scroll data-scroll-speed="1"></div>
+                <div class="color 6" style="background-color: #6cdf44;" data-scroll data-scroll-speed="-11"></div>
+                <div class="color 8" style="background-color: #54ba71;" data-scroll data-scroll-speed="0"></div>
+                <div class="color 10" style="background-color: #429bd3;" data-scroll-delay="0.5" data-scroll
+                    data-scroll-speed="4"></div>
+                <div class="color 12" style="background-color: #5232c1;" data-scroll data-scroll-speed="9"></div>
+                <div class="color 14" style="background-color: #552793;" data-scroll data-scroll-delay="1" data-scroll
+                    data-scroll-speed="1"></div>
+            </div>
+        </aside>
+        <main class="main" data-scroll-section>
+            <div class="gen">
+                <div class="col cero"></div>
+                <div class="col3 cien">
+                    <p class="parrafo">
+                        El pH es una medida que indica el grado de acidez o alcalinidad de una sustancia. Es una escala
+                        numérica que va desde 0 a 14, donde 0 representa una sustancia altamente ácida, 7 es neutra y 14
+                        indica una sustancia altamente alcalina. El pH se basa en la concentración de iones de hidrógeno
+                        (H+) presentes en una solución. Un pH menor a 7 indica acidez, mientras que un pH mayor a 7
+                        indica alcalinidad.
+                    </p>
+                </div>
+            </div>
+            <div class="gen" id="calculadora1">
+                <script>
+                    function calculatePH1() {
+                        var concentration = parseFloat(document.getElementById("concentration").value);
+                        var pH = -Math.log10(concentration);
+                        document.getElementById("result1").innerHTML = "El pH es: " + pH.toFixed(7);
+                    }
+                </script>
+                <div class="col cero"></div>
+                <div class="col3 cien">
+                    <h1 class="titulocalc">Calculadora de pH por concentración de iones de hidrógeno</h1>
+                    <br>
+                    <input class="parrafo" type="number" id="concentration" name="concentración" min="0" max="1"
+                        step="0.001" required placeholder="Escribe aquí (mol/L)">
+                    <button onclick="calculatePH1()" class="parrafo">Calcular</button>
+                    <br><br>
+                    <p id="result1" class="parrafo"></p>
+                </div>
+            </div>
+            <div class="gen" id="calculadora2">
+                <div class="col cero"></div>
+                <div class="col3 cien">
+                    <script>
+                        function calculatePH2() {
+                            var substance = document.getElementById("substance").value;
+                            var concentration;
+                
+                            // Aquí se asume una lista de sustancias y sus concentraciones de iones predefinidas
+                            switch (substance) {
+                                case "Agua":
+                                    concentration = 1e-7;
+                                    break;
+                                case "Ácido clorhídrico":
+                                    concentration = 0.1;
+                                    break;
+                                case "Hidróxido de sodio":
+                                    concentration = 0.1;
+                                    break;
+                                // Agrega más sustancias y sus concentraciones aquí
+                                default:
+                                    concentration = 1e-7; // Concentración por defecto
+                                    break;
+                            }
+                
+                            var pH = -Math.log10(concentration);
+                            document.getElementById("result2").innerHTML = "El pH de " + substance + " es: " + pH.toFixed(7);
+                        }
+                    </script>
+                    <h1 class="titulocalc">Calculadora de pH con sustancias comunes</h1>
+                    <label for="substance" class="parrafo">Sustancia:</label>
+                    <select id="substance" class="parrafo">
+                        <option value="Agua">Agua</option>
+                        <option value="Ácido clorhídrico">Ácido clorhídrico</option>
+                        <option value="Hidróxido de sodio">Hidróxido de sodio</option>
+                        <!-- Agrega más sustancias aquí -->
+                    </select>
+                    <button onclick="calculatePH2()" class="parrafo">Calcular</button>
+                    <br><br>
+                    <p id="result2" class="parrafo"></p>
+                </div>
+            </div>
+        </main>
+    </section>
+    <footer>
+        <div class="gen">
+            <div class="col4">
+                <p class="parrafo">
+                    Alan Rodríguez Gallegos 6AOFIM
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+<script src="js/scroll.js"></script>
+<script src="js/cursor.js"></script>
+
+</html>

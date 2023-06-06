@@ -1,0 +1,563 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+HTML {
+    position: relative;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    font-family: 'SF Pro Display', 'Neue Haas Grotesk Display Pro', 'Acid Grotesk', sans-serif;
+    background-color: #f7f4ef;
+    animation: animate 0.8s infinite;
+    transition: 0.8s;
+    position: relative;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-BlackItalic.eot');
+    src: local('SF Pro Display Black Italic'), local('SFProDisplay-BlackItalic'),
+        url('../fonts/SFProDisplay-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-BlackItalic.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-BlackItalic.woff') format('woff'),
+        url('../fonts/SFProDisplay-BlackItalic.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-BlackItalic.svg#SFProDisplay-BlackItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-Black.eot');
+    src: local('SF Pro Display Black'), local('SFProDisplay-Black'),
+        url('../fonts/SFProDisplay-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Black.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Black.woff') format('woff'),
+        url('../fonts/SFProDisplay-Black.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Black.svg#SFProDisplay-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-Bold.eot');
+    src: local('SF Pro Display Bold'), local('SFProDisplay-Bold'),
+        url('../fonts/SFProDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Bold.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Bold.woff') format('woff'),
+        url('../fonts/SFProDisplay-Bold.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Bold.svg#SFProDisplay-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-BoldItalic.eot');
+    src: local('SF Pro Display Bold Italic'), local('SFProDisplay-BoldItalic'),
+        url('../fonts/SFProDisplay-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-BoldItalic.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-BoldItalic.woff') format('woff'),
+        url('../fonts/SFProDisplay-BoldItalic.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-BoldItalic.svg#SFProDisplay-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-HeavyItalic.eot');
+    src: local('SF Pro Display Heavy Italic'), local('SFProDisplay-HeavyItalic'),
+        url('../fonts/SFProDisplay-HeavyItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-HeavyItalic.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-HeavyItalic.woff') format('woff'),
+        url('../fonts/SFProDisplay-HeavyItalic.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-HeavyItalic.svg#SFProDisplay-HeavyItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-Heavy.eot');
+    src: local('SF Pro Display Heavy'), local('SFProDisplay-Heavy'),
+        url('../fonts/SFProDisplay-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Heavy.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Heavy.woff') format('woff'),
+        url('../fonts/SFProDisplay-Heavy.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Heavy.svg#SFProDisplay-Heavy') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-Light.eot');
+    src: local('SF Pro Display Light'), local('SFProDisplay-Light'),
+        url('../fonts/SFProDisplay-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Light.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Light.woff') format('woff'),
+        url('../fonts/SFProDisplay-Light.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Light.svg#SFProDisplay-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-LightItalic.eot');
+    src: local('SF Pro Display Light Italic'), local('SFProDisplay-LightItalic'),
+        url('../fonts/SFProDisplay-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-LightItalic.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-LightItalic.woff') format('woff'),
+        url('../fonts/SFProDisplay-LightItalic.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-LightItalic.svg#SFProDisplay-LightItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-Medium.eot');
+    src: local('SF Pro Display Medium'), local('SFProDisplay-Medium'),
+        url('../fonts/SFProDisplay-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Medium.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Medium.woff') format('woff'),
+        url('../fonts/SFProDisplay-Medium.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Medium.svg#SFProDisplay-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-MediumItalic.eot');
+    src: local('SF Pro Display Medium Italic'), local('SFProDisplay-MediumItalic'),
+        url('../fonts/SFProDisplay-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-MediumItalic.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-MediumItalic.woff') format('woff'),
+        url('../fonts/SFProDisplay-MediumItalic.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-MediumItalic.svg#SFProDisplay-MediumItalic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-RegularItalic.eot');
+    src: local('SF Pro Display Italic'), local('SFProDisplay-RegularItalic'),
+        url('../fonts/SFProDisplay-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-RegularItalic.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-RegularItalic.woff') format('woff'),
+        url('../fonts/SFProDisplay-RegularItalic.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-RegularItalic.svg#SFProDisplay-RegularItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-Regular.eot');
+    src: local('SF Pro Display Regular'), local('SFProDisplay-Regular'),
+        url('../fonts/SFProDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Regular.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Regular.woff') format('woff'),
+        url('../fonts/SFProDisplay-Regular.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Regular.svg#SFProDisplay-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-SemiboldItalic.eot');
+    src: local('SF Pro Display Semibold Italic'), local('SFProDisplay-SemiboldItalic'),
+        url('../fonts/SFProDisplay-SemiboldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-SemiboldItalic.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-SemiboldItalic.woff') format('woff'),
+        url('../fonts/SFProDisplay-SemiboldItalic.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-SemiboldItalic.svg#SFProDisplay-SemiboldItalic') format('svg');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-Semibold.eot');
+    src: local('SF Pro Display Semibold'), local('SFProDisplay-Semibold'),
+        url('../fonts/SFProDisplay-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Semibold.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Semibold.woff') format('woff'),
+        url('../fonts/SFProDisplay-Semibold.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Semibold.svg#SFProDisplay-Semibold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-ThinItalic.eot');
+    src: local('SF Pro Display Thin Italic'), local('SFProDisplay-ThinItalic'),
+        url('../fonts/SFProDisplay-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-ThinItalic.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-ThinItalic.woff') format('woff'),
+        url('../fonts/SFProDisplay-ThinItalic.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-ThinItalic.svg#SFProDisplay-ThinItalic') format('svg');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-Thin.eot');
+    src: local('SF Pro Display Thin'), local('SFProDisplay-Thin'),
+        url('../fonts/SFProDisplay-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Thin.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Thin.woff') format('woff'),
+        url('../fonts/SFProDisplay-Thin.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Thin.svg#SFProDisplay-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-UltralightItalic.eot');
+    src: local('SF Pro Display Ultralight Italic'), local('SFProDisplay-UltralightItalic'),
+        url('../fonts/SFProDisplay-UltralightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-UltralightItalic.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-UltralightItalic.woff') format('woff'),
+        url('../fonts/SFProDisplay-UltralightItalic.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-UltralightItalic.svg#SFProDisplay-UltralightItalic') format('svg');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFProDisplay-Ultralight.eot');
+    src: local('SF Pro Display Ultralight'), local('SFProDisplay-Ultralight'),
+        url('../fonts/SFProDisplay-Ultralight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Ultralight.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Ultralight.woff') format('woff'),
+        url('../fonts/SFProDisplay-Ultralight.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Ultralight.svg#SFProDisplay-Ultralight') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/*
+@keyframes animate {
+    0% {
+        cursor: url('../img/cursor/cursor_Mesa\ de\ trabajo\ 1.png'), auto;
+    }
+
+    14.28% {
+        cursor: url('../img/cursor/cursor-02.png'), auto;
+    }
+
+    28.57% {
+        cursor: url('../img/cursor/cursor-03.png'), auto;
+    }
+
+    42.85% {
+        cursor: url('../img/cursor/cursor-04.png'), auto;
+    }
+
+    57.14% {
+        cursor: url('../img/cursor/cursor-05.png'), auto;
+    }
+
+    71.42% {
+        cursor: url('../img/cursor/cursor-06.png'), auto;
+    }
+
+    100% {
+        cursor: url('../img/cursor/cursor-07.png'), auto;
+    }
+}*/
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#follower {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #000;
+    position: absolute;
+    margin: -16px 0 0 -16px;
+    z-index: 300;
+    filter: invert(100%);
+}
+
+section.general {
+    width: 100%;
+    padding: 2vw;
+}
+
+div.gen {
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    margin-bottom: 2vw;
+}
+
+div.col {
+    width: 22.6vw;
+    float: right;
+}
+
+div.col2 {
+    width: 47vw;
+    float: right;
+}
+
+div.col3 {
+    width: 71.5vw;
+    float: right;
+}
+
+div.col4 {
+    width: 96vw;
+    float: right;
+}
+
+nav {
+    padding: 0 2vw 0 2vw;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    mix-blend-mode: difference;
+    filter: invert(100%);
+    color: black;
+}
+
+nav div.gen {
+    padding-top: 2vw;
+}
+
+main {
+    padding-bottom: 100px;
+}
+
+header {
+    z-index: 100;
+}
+
+header h1 {
+    width: 100%;
+    font-size: 144px;
+    line-height: 90%;
+    letter-spacing: -2px;
+    z-index: 10;
+    text-align: center;
+}
+
+header p.parrafo {
+    z-index: 200;
+}
+
+aside.colores {
+    z-index: -1;
+}
+
+aside.colores div.color {
+    width: 11.06667vw;
+    height: 11.06667vw;
+    border-radius: 50%;
+}
+
+aside.colores div.gen div.colormedio {
+    width: 4.53333vw;
+}
+
+.parrafo {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 95%;
+}
+
+main .parrafo {
+    font-size: 34px;
+    line-height: 115%;
+}
+
+
+main .gen {
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    cursor: inherit;
+}
+
+input {
+    font-family: 'SF Pro Display';
+    width: 310px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #f7f4ef;
+    border: none;
+    filter: opacity(50%);
+}
+
+button {
+    font-family: 'SF Pro Display';
+    border: none;
+    align-self: flex-end;
+    margin-left: 10px;
+}
+
+select {
+    font-family: 'SF Pro Display';
+    background-color: #f7f4ef;
+    border-radius: 10px;
+    filter: opacity(25%);
+}
+
+
+
+button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+main h1.titulocalc {
+    font-size: 72px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+footer {
+    width: 96vw;
+    position: fixed;
+    bottom: 0;
+    margin: 0 0 0 2vw;
+    mix-blend-mode: difference;
+    filter: invert(100%);
+    color: black;
+}
+
+footer div.gen {
+    padding-bottom: 1vw;
+    margin-bottom: 0;
+}
+
+footer .col4 {
+    text-align: center;
+}
+
+/*DISEÑO RESPONSIVE*/
+
+@media screen and (max-width: 1024px) {
+    header h1 {
+        font-size: 120px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    div.cero {
+        width: 0;
+    }
+
+    div.doble {
+        width: 47vw;
+    }
+
+    div.cien {
+        width: 96vw;
+    }
+
+    div.mitad {
+        width: 22.6vw;
+    }
+
+    div.triple {
+        width: 71.5vw;
+    }
+
+    header p.parrafo {
+        text-align: center;
+    }
+
+    header h1 {
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    header {
+        margin-top: 100px;
+    }
+
+    header h1 {
+        font-size: 89px;
+    }
+
+    main h1.titulocalc {
+        font-size: 55px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    header h1 {
+        font-size: 72px;
+    }
+
+    main h1.titulocalc {
+
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    header h1 {
+        font-size: 55px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    header h1 {
+        font-size: 38px;
+        letter-spacing: normal;
+    }
+}
