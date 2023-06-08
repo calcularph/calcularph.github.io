@@ -132,34 +132,111 @@
                     <script>
                         function calculatePH2() {
                             var substance = document.getElementById("substance").value;
-                            var concentration;
-                
+                            var concentration2;
+
                             // Aquí se asume una lista de sustancias y sus concentraciones de iones predefinidas
                             switch (substance) {
-                                case "Agua":
-                                    concentration = 1e-7;
+                                case "Ácido sulfúrico":
+                                    concentration2 = 1000;
                                     break;
                                 case "Ácido clorhídrico":
-                                    concentration = 0.1;
+                                    concentration2 = 1;
+                                    break;
+                                case "Drenaje ácido de minas (AMD)":
+                                    concentration2 = 0.102329;
+                                    break;
+                                case "Ácido de una batería":
+                                    concentration2 = 0.125893;
+                                    break;
+                                case "Ácido gástrico":
+                                    concentration2 = 0.01;
+                                    break;
+                                case "Jugo de limón":
+                                    concentration2 = 0.003162;
+                                    break;
+                                case "Refresco":
+                                    concentration2 = 0.003155;
+                                    break;
+                                case "Vinagre":
+                                    concentration2 = 0.001995;
+                                    break;
+                                case "Jugo de naranja o manzana":
+                                    concentration2 = 0.000316;
+                                    break;
+                                case "Cerveza":
+                                    concentration2 = 3.2E-5;
+                                    break;
+                                case "Café":
+                                    concentration2 = 1E-5;
+                                    break;
+                                case "Té":
+                                    concentration2 = 3.2E-6;
+                                    break;
+                                case "Lluvia ácida":
+                                    concentration2 = 2.5E-6;
+                                    break;
+                                case "Leche":
+                                    concentration2 = 3.2E-7;
+                                    break;
+                                case "Agua":
+                                    concentration2 = 1E-7;
+                                    break;
+                                case "Saliva":
+                                    concentration2 = 6.3E-8;
+                                    break;
+                                case "Sangre":
+                                    concentration2 = 4E-8;
+                                    break;
+                                case "Agua de mar":
+                                    concentration2 = 6.3E-9;
+                                    break;
+                                case "Jabón":
+                                    concentration2 = 3.2E-10;
+                                    break;
+                                case "Hipoclorito de sodio (lejía)":
+                                    concentration2 = 3.2E-12;
+                                    break;
+                                case "Cal":
+                                    concentration2 = 3.2E-13;
                                     break;
                                 case "Hidróxido de sodio":
-                                    concentration = 0.1;
+                                    concentration2 = 1E-14;
                                     break;
-                                // Agrega más sustancias y sus concentraciones aquí
+                                    // Agrega más sustancias y sus concentraciones aquí
                                 default:
-                                    concentration = 1e-7; // Concentración por defecto
+                                    concentratio2n = 1e-7; // Concentración por defecto
                                     break;
                             }
-                
-                            var pH = -Math.log10(concentration);
-                            document.getElementById("result2").innerHTML = "El pH de " + substance + " es: " + pH.toFixed(7);
+
+                            var pH = -Math.log10(concentration2);
+                            document.getElementById("result2").innerHTML = "El pH de " + substance + " es: " + pH
+                                .toFixed(7);
                         }
                     </script>
                     <h1 class="titulocalc">Calculadora de pH con sustancias comunes</h1>
                     <label for="substance" class="parrafo">Sustancia:</label>
                     <select id="substance" class="parrafo">
-                        <option value="Agua">Agua</option>
+                        <option value="Ácido sulfúrico">Ácido sulfúrico</option>
                         <option value="Ácido clorhídrico">Ácido clorhídrico</option>
+                        <option value="Drenaje ácido de minas (AMD)">Drenaje ácido de minas (AMD)</option>
+                        <option value="Ácido de una batería">Ácido de una batería</option>
+                        <option value="Ácido gástrico">Ácido gástrico</option>
+                        <option value="Jugo de limón">Jugo de limón</option>
+                        <option value="Refresco">Refresco</option>
+                        <option value="Vinagre">Vinagre</option>
+                        <option value="Jugo de naranja o manzana">Jugo de naranja o manzana</option>
+                        <option value="Cerveza">Cerveza</option>
+                        <option value="Café">Café</option>
+                        <option value="Té">Té</option>
+                        <option value="Lluvia ácida">Lluvia ácida</option>
+                        <option value="Leche">Leche</option>
+                        <option value="Agua">Agua</option>
+                        <option value="Saliva">Saliva</option>
+                        <option value="Sangre">Sangre</option>
+                        <option value="Agua de mar">Agua de mar</option>
+                        <option value="Jabón">Jabón</option>
+                        <option value="Hipoclorito de sodio (lejía)">Hipoclorito de sodio (lejía)</option>
+                        <option value="Cal">Cal</option>
                         <option value="Hidróxido de sodio">Hidróxido de sodio</option>
                         <!-- Agrega más sustancias aquí -->
                     </select>
@@ -167,6 +244,142 @@
                     <br><br>
                     <p id="result2" class="parrafo"></p>
                 </div>
+            </div>
+            <div class="gen" id="calculadora3">
+                <script>
+                    function calculateConcentration3() {
+                        var pH = parseFloat(document.getElementById("pH").value);
+                        var concentration3 = Math.pow(10, -pH);
+                        document.getElementById("result3").innerHTML = "La concentración de iones es: " + concentration3
+                            .toFixed(14);
+                    }
+                </script>
+                <div class="col"></div>
+                <div class="col3">
+                    <h1 class="titulocalc">Calculadora de concentración de iones de hidrógeno dado el pH</h1>
+                    <label for="pH" class="parrafo">pH:</label>
+                    <input type="number" id="pH" step="0.01" placeholder="Ingrese el pH" class="parrafo">
+                    <button onclick="calculateConcentration3()" class="parrafo">Calcular</button>
+                    <p id="result3" class="parrafo"></p>
+                </div>
+            </div>
+            <div class="gen" id="calculadora4">
+                <script>
+                    function calculateConcentration4() {
+                        var substance4 = document.getElementById("substance4").value;
+                        var concentration4;
+
+                        // Aquí se asume una lista de sustancias y sus concentraciones de iones predefinidas
+                        switch (substance4) {
+                            case "Ácido sulfúrico":
+                                    concentration4 = 1000;
+                                    break;
+                                case "Ácido clorhídrico":
+                                    concentration4 = 1;
+                                    break;
+                                case "Drenaje ácido de minas (AMD)":
+                                    concentration4 = 0.102329;
+                                    break;
+                                case "Ácido de una batería":
+                                    concentration4 = 0.125893;
+                                    break;
+                                case "Ácido gástrico":
+                                    concentration4 = 0.01;
+                                    break;
+                                case "Jugo de limón":
+                                    concentration4 = 0.003162;
+                                    break;
+                                case "Refresco":
+                                    concentration4 = 0.003155;
+                                    break;
+                                case "Vinagre":
+                                    concentration4 = 0.001995;
+                                    break;
+                                case "Jugo de naranja o manzana":
+                                    concentration4 = 0.000316;
+                                    break;
+                                case "Cerveza":
+                                    concentration4 = 3.2E-5;
+                                    break;
+                                case "Café":
+                                    concentration4 = 1E-5;
+                                    break;
+                                case "Té":
+                                    concentration4 = 3.2E-6;
+                                    break;
+                                case "Lluvia ácida":
+                                    concentration4 = 2.5E-6;
+                                    break;
+                                case "Leche":
+                                    concentration4 = 3.2E-7;
+                                    break;
+                                case "Agua":
+                                    concentration4 = 1E-7;
+                                    break;
+                                case "Saliva":
+                                    concentration4 = 6.3E-8;
+                                    break;
+                                case "Sangre":
+                                    concentration4 = 4E-8;
+                                    break;
+                                case "Agua de mar":
+                                    concentration4 = 6.3E-9;
+                                    break;
+                                case "Jabón":
+                                    concentration4 = 3.2E-10;
+                                    break;
+                                case "Hipoclorito de sodio (lejía)":
+                                    concentration4 = 3.2E-12;
+                                    break;
+                                case "Cal":
+                                    concentration4 = 3.2E-13;
+                                    break;
+                                case "Hidróxido de sodio":
+                                    concentration4 = 1E-14;
+                                    break;
+                                // Agrega más sustancias y sus concentraciones aquí
+                            default:
+                                concentration4 = 1e-7; // Concentración por defecto
+                                break;
+                        }
+
+                        document.getElementById("result4").innerHTML = "La concentración de iones en " + substance4 +
+                            " es: " + concentration4.toFixed(14);
+                    }
+                </script>
+                <div class="col"></div>
+                <div class="col3">
+                    <h1 class="titulocalc">Calculadora de concentración de iones con sustancias comunes</h1>
+                    <label for="substance4" class="parrafo">Sustancia:</label>
+                    <select id="substance4" class="parrafo">
+                        <option value="Ácido sulfúrico">Ácido sulfúrico</option>
+                        <option value="Ácido clorhídrico">Ácido clorhídrico</option>
+                        <option value="Drenaje ácido de minas (AMD)">Drenaje ácido de minas (AMD)</option>
+                        <option value="Ácido de una batería">Ácido de una batería</option>
+                        <option value="Ácido gástrico">Ácido gástrico</option>
+                        <option value="Jugo de limón">Jugo de limón</option>
+                        <option value="Refresco">Refresco</option>
+                        <option value="Vinagre">Vinagre</option>
+                        <option value="Jugo de naranja o manzana">Jugo de naranja o manzana</option>
+                        <option value="Cerveza">Cerveza</option>
+                        <option value="Café">Café</option>
+                        <option value="Té">Té</option>
+                        <option value="Lluvia ácida">Lluvia ácida</option>
+                        <option value="Leche">Leche</option>
+                        <option value="Agua">Agua</option>
+                        <option value="Saliva">Saliva</option>
+                        <option value="Sangre">Sangre</option>
+                        <option value="Agua de mar">Agua de mar</option>
+                        <option value="Jabón">Jabón</option>
+                        <option value="Hipoclorito de sodio (lejía)">Hipoclorito de sodio (lejía)</option>
+                        <option value="Cal">Cal</option>
+                        <option value="Hidróxido de sodio">Hidróxido de sodio</option>
+                        <!-- Agrega más sustancias aquí -->
+                    </select>
+                    <button onclick="calculateConcentration4()" class="parrafo">Calcular</button>
+                    <p id="result4" class="parrafo"></p>
+                </div>
+                <br><br><br><br>
             </div>
         </main>
     </section>
